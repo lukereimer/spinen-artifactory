@@ -5,3 +5,6 @@ license          'All rights reserved'
 description      'Installs/Configures spinen-artifactory'
 long_description 'Installs/Configures spinen-artifactory'
 version          '0.1.0'
+
+depends          'java'
+depends          'ark'
