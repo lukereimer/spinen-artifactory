@@ -1,0 +1,7 @@
+name             'spinen-artifactory'
+maintainer       'SPINEN'
+maintainer_email 'luke.reimer@spinen.com'
+license          'All rights reserved'
+description      'Installs/Configures spinen-artifactory'
+long_description 'Installs/Configures spinen-artifactory'
+version          '0.1.0'
