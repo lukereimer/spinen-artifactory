@@ -1,6 +1,6 @@
 # spinen-artifactory-cookbook
 
-Installs Artifactory Pro using the build in installService.sh script, but adds necessary user, diretories, and installs java.
+Installs Artifactory Pro using the built in installService.sh script, but adds necessary user, diretories, and installs java.
 
 ## Supported Platforms
 
@@ -8,7 +8,7 @@ Ubuntu 14.04
 
 ## Attributes
 
-This cookbook expects to attributes not in the attributes/default.rb
+This cookbook expects two attributes not in the attributes/default.rb
 
 ```ruby
 node['artifactory']['zip_url']
