@@ -16,6 +16,7 @@ class Chef
         ark 'artifactory' do
           url node['artifactory']['zip_url']
           checksum node['artifactory']['zip_checksum']
+          extension 'zip'
           path '/var/lib'
           owner node['artifactory']['user']
           action :put

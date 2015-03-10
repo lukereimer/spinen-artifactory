@@ -1,6 +1,6 @@
 # spinen-artifactory-cookbook
 
-Installs Artifactory Pro
+Installs Artifactory Pro using the build in installService.sh script, but adds necessary user, diretories, and installs java.
 
 ## Supported Platforms
 
@@ -8,22 +8,14 @@ Ubuntu 14.04
 
 ## Attributes
 
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['spinen-artifactory']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+This cookbook expects to attributes not in the attributes/default.rb
 
-## Usage
+```ruby
+node['artifactory']['zip_url']
+node['artifactory']['zip_checksum']
+```
+
+These should be the url and the _sha256_ _checksum_ of the zip file.
 
 ### spinen-artifactory::default
 
@@ -36,6 +28,11 @@ Include `spinen-artifactory` in your node's `run_list`:
   ]
 }
 ```
+## TO-DO
+
++ Tests currently pass, but only because 0 resources are detected. 
++ Also need to test the LWRP separately
+
 
 ## License and Authors
 
