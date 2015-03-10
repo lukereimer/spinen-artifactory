@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'rspec'
 gem 'berkshelf'
+gem 'chefspec'
 
 # Uncomment these lines if you want to live on the Edge:
 #
@@ -14,5 +16,5 @@ gem 'berkshelf'
 #   gem "vagrant-omnibus", github: "schisamo/vagrant-omnibus"
 # end
 
-gem "test-kitchen"
-gem "kitchen-vagrant"
+gem 'test-kitchen'
+gem 'kitchen-vagrant'

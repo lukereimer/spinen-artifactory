@@ -1,10 +1,10 @@
 # spinen-artifactory-cookbook
 
-TODO: Enter the cookbook description here.
+Installs Artifactory Pro
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+Ubuntu 14.04
 
 ## Attributes
 
