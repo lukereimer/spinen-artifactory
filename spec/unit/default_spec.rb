@@ -10,10 +10,6 @@ describe 'spinen-artifactory::default' do
     end.converge(described_recipe)
   end
 
-  it 'includes apt::default recipe' do
-    expect(chef_run).to include_recipe('java::default')
-  end
-
   %w(
     unzip
     rsync
