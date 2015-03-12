@@ -27,8 +27,7 @@ describe 'spinen-artifactory::default' do
   end
 
   it 'links catalina logs to /var/log/artifactory' do
-    expect(chef_run).to create_link(::File.join('/var/lib/artifactory/tomcat', 'logs')).to(
-      '/var/log/artifactory').with(
+    expect(chef_run).to create_link(::File.join('/var/lib/artifactory/tomcat', 'logs')).with(
         owner:  'artifactory')
   end
 
