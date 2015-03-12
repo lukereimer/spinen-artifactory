@@ -14,6 +14,15 @@ describe 'spinen-artifactory::default' do
     expect(chef_run).to include_recipe('java::default')
   end
 
+  %w(
+    unzip
+    rsync
+  ).each do |panda|
+    it "installs #{panda}" do
+      expect(chef_run).to install_package(panda)
+    end
+  end
+
   it 'creates a log directory' do
     expect(chef_run).to create_directory('/var/log/artifactory').with(
       owner: 'artifactory',
