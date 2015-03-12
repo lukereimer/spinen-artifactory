@@ -31,4 +31,16 @@ describe 'spinen-artifactory::default' do
       '/var/log/artifactory').with(
         owner:  'artifactory')
   end
+
+  it 'creates the default config for artifactory' do
+    expect(chef_run).to create_template('/var/lib/artifactory/etc/default').with(
+      source: 'etc.default.erb',
+      owner: 'artifactory',
+      mode: 0755
+      )
+  end
+
+  it 'starts artifactory' do
+    expect(chef_run).to start_service('artifactory')
+  end
 end
