@@ -2,8 +2,11 @@ require 'spec_helper'
 
 describe 'spinen-artifactory::default' do
   let(:chef_run) do
-    ChefSpec::ServerRunner.new do |node|
-      node.set['artifactory']['home'] = '/var/log/artifactory'
+    ChefSpec::SoloRunner.new do |node|
+      node.set['artifactory']['home'] = '/var/lib/artifactory'
+      node.set['artifactory']['log_dir'] = '/var/log/artifactory'
+      node.set['artifactory']['catalina_base'] = '/var/lib/artifactory/tomcat'
+      node.set['artifactory']['user'] = 'artifactory'
     end.converge(described_recipe)
   end
 
@@ -11,23 +14,16 @@ describe 'spinen-artifactory::default' do
     expect(chef_run).to include_recipe('java::default')
   end
 
-  it 'creates an artifactory user' do
-    expect(chef_run).to create_user(node['artifactory']['user'])
+  it 'creates a log directory' do
+    expect(chef_run).to create_directory('/var/log/artifactory').with(
+      owner: 'artifactory',
+      mode: 0755,
+      recursive: true)
   end
 
-  %w(
-    node['artifactory']['home']
-    node['artifactory'][catalina_base]
-    ::File.join(node['artifactory']['catalina_base'], 'work')
-    ::File.join(node['artifactory']['catalina_base'], 'temp')
-    node['artifactory']['log_dir']
-  ).each do |delta|
-    it 'does stuff' do
-      expect(chef_run).to create_directory(delta).with(
-        owner: node['artifactory']['user'],
-        mode: 0755,
-        recursive: true
-      )
-    end
+  it 'links catalina logs to /var/log/artifactory' do
+    expect(chef_run).to create_link(::File.join('/var/lib/artifactory/tomcat', 'logs')).to(
+      '/var/log/artifactory').with(
+        owner:  'artifactory')
   end
 end
