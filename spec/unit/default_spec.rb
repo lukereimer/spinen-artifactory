@@ -26,9 +26,13 @@ describe 'spinen-artifactory::default' do
       recursive: true)
   end
 
+  it 'does the artifactory install with the artifactory_install lwrp' do
+    expect(chef_run).to install_artifactory_install('artifactory')
+  end
+
   it 'links catalina logs to /var/log/artifactory' do
     expect(chef_run).to create_link(::File.join('/var/lib/artifactory/tomcat', 'logs')).with(
-        owner:  'artifactory')
+      owner:  'artifactory')
   end
 
   it 'creates the default config for artifactory' do
