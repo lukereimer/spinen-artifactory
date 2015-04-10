@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 name             'spinen-artifactory'
 maintainer       'SPINEN'
 maintainer_email 'luke.reimer@spinen.com'
-license          'All rights reserved'
-description      'Installs/Configures spinen-artifactory'
-long_description 'Installs/Configures spinen-artifactory'
-version          '0.1.0'
+license          'MIT'
+description      'Installs/Configures Artifactory Pro'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version IO.read(File.join(File.dirname(__FILE__), 'VERSION'))
 
-depends          'java'
-depends          'ark'
+%w(
+	java
+	ark
+).each do |cookbook|
+  depends cookbook
+end
+
+supports 'ubuntu'
