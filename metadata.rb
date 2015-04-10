@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 name             'spinen-artifactory'
 maintainer       'SPINEN'
 maintainer_email 'luke.reimer@spinen.com'
