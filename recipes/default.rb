@@ -17,6 +17,7 @@ package 'rsync'
 
 directory node['artifactory']['log_dir'] do
   owner node['artifactory']['user']
+  group node['artifactory']['user']
   mode 00755
 end
 
