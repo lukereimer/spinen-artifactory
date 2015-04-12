@@ -4,7 +4,6 @@ gem 'rspec'
 gem 'berkshelf'
 gem 'chefspec'
 
-
 # Uncomment these lines if you want to live on the Edge:
 #
 # group :development do
@@ -19,4 +18,3 @@ gem 'chefspec'
 
 gem 'test-kitchen'
 gem 'kitchen-vagrant'
-

@@ -6,10 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-if node['artifactory']['install_java']
-  node.set['java']['jdk_version'] = 7
-  include_recipe 'java'
-end
+if node['artifactory']['install_java']; include_recipe 'java' end
 
 package 'unzip'
 # ark requires rsync package
@@ -17,7 +14,8 @@ package 'rsync'
 
 directory node['artifactory']['log_dir'] do
   owner node['artifactory']['user']
-  mode 00755
+  mode 0755
+  recursive true
 end
 
 artifactory_install 'artifactory' do
