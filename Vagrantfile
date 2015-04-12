@@ -1,3 +1,6 @@
+#!/usr/bin/env ruby
+#^syntaxBOX detection
+
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -18,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   #   $ vagrant plugin install vagrant-omnibus
   #
-  if Vagrant.has_plugin?("vagrant-omnibus")
+  if Vagrant.has_plugin?('vagrant-omnibus')
     config.omnibus.chef_version = 'latest'
   end
 

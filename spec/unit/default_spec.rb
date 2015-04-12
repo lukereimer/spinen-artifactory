@@ -3,11 +3,16 @@ require 'spec_helper'
 describe 'spinen-artifactory::default' do
   let(:chef_run) do
     ChefSpec::SoloRunner.new do |node|
+      node.set['artifactory']['install_java'] = true
       node.set['artifactory']['home'] = '/var/lib/artifactory'
       node.set['artifactory']['log_dir'] = '/var/log/artifactory'
       node.set['artifactory']['catalina_base'] = '/var/lib/artifactory/tomcat'
       node.set['artifactory']['user'] = 'artifactory'
     end.converge(described_recipe)
+  end
+
+  it 'includes java recipe' do
+    expect(chef_run).to include_recipe('java')
   end
 
   %w(
