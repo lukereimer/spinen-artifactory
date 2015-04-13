@@ -1,6 +1,6 @@
 # spinen-artifactory-cookbook
 
-Installs Artifactory Pro using the built in installService.sh script, but adds necessary user, diretories, and installs java.
+Installs Artifactory Pro using the built in installService.sh script, but adds necessary user, diretories, and installs java, if desired.
 
 ## Supported Platforms
 
@@ -30,8 +30,6 @@ Include `spinen-artifactory` in your node's `run_list`:
 ```
 ## TO-DO
 
-+ Tests currently pass, but only because 0 resources are detected. 
-+ Also need to test the LWRP separately
 
 
 ## License and Authors
