@@ -27,7 +27,7 @@ describe 'spinen-artifactory::default' do
   it 'creates a log directory' do
     expect(chef_run).to create_directory('/var/log/artifactory').with(
       owner: 'artifactory',
-      mode: 0755,
+      mode: 0777,
       recursive: true)
   end
 
