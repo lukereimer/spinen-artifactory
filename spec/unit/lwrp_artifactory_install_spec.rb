@@ -19,7 +19,6 @@ describe 'spinen-artifactory::default' do
   %w(
     /var/lib/artifactory
     /var/lib/artifactory/tomcat
-    /var/log/artifactory
   ).each do |delta|
     it "creates directory #{delta}" do
       expect(chef_run).to create_directory(delta).with(
@@ -28,6 +27,14 @@ describe 'spinen-artifactory::default' do
         recursive: true
       )
     end
+  end
+
+  it 'creates the /var/log/ directory' do
+    expect(chef_run).to create_directory('/var/log/artifactory').with(
+      owner: 'artifactory',
+      mode: 0777,
+      recursive: true
+    )
   end
 
   join = [
