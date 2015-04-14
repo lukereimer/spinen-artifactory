@@ -14,8 +14,8 @@ package 'rsync'
 
 directory node['artifactory']['log_dir'] do
   owner node['artifactory']['user']
-  mode 0755
   recursive true
+  mode 0777
 end
 
 artifactory_install 'artifactory' do
