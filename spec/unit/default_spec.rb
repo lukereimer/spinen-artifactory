@@ -25,7 +25,7 @@ describe 'spinen-artifactory::default' do
     it 'does stuff' do
       expect(chef_run).to create_directory(delta).with(
         owner: node['artifactory']['user'],
-        mode: 0755,
+        mode: 0777,
         recursive: true
       )
     end
