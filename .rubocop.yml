@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 AllCops:
   Exclude:
   - 'metadata.rb'
@@ -7,6 +5,5 @@ AllCops:
   - 'Vagrantfile'
   - '.vagrant/*'
 
->>>>>>> 96de969800f17f1b1c7d65e23822f688c1236e65
 LineLength:
   Max: 200
