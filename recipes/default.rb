@@ -36,6 +36,22 @@ template '/var/lib/artifactory/etc/default' do
   mode 0755
 end
 
+template "#{node['artifactory']['home']}/etc/storage.properties" do
+  source 'mysql.properties.erb'
+  owner 'artifactory'
+  group 'artifactory'
+  mode 0664
+  variables({
+    :type => default['artifactory']['storage']['type']
+    :url => default['artifactory']['storage']['url'] 
+    :driver => default['artifactory']['storage']['driver']
+    :cache_maxSize => default['artifactory']['storage']['cache_maxSize']
+    :username => default['artifactory']['storage']['username']
+    :password => default['artifactory']['storage']['password']
+    :binary_provider => node['artifactory']['storage']['binary_provider']
+    })
+end 
+
 service 'artifactory' do
   action :start
 end
