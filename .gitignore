@@ -24,3 +24,9 @@ bin/*
 # Vagrant
 .vagrant/
 
+
+
+# notes
+notes*
+DBproperties
+
