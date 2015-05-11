@@ -20,5 +20,13 @@ bin/*
 .kitchen/
 .kitchen.local.yml
 
-# a directory I created to look at all the different storage options
-DBproperties/
+
+# Vagrant
+.vagrant/
+
+
+
+# notes
+notes*
+DBproperties
+
