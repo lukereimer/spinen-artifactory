@@ -1,7 +1,7 @@
 type=<%= @type %>
 driver=<%= @driver %>
 url=<%= @url %>
-<%- if @username? >
+<%- if !@username.nil? >
 username=<%= @username %>
 password=<%= @password %>
 <%- end %>
