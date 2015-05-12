@@ -36,7 +36,7 @@ mysql_database_user "#{node['artifactory']['storage']['user']}" do
   password "#{node['artifactory']['storage']['password']}"
   database_name 'artifactory'
   host '%'
-  privileges [:select, :update, :insert]
-  require_ssl true
+  privileges [:all]
+  require_ssl false
   action :grant
 end

@@ -11,8 +11,8 @@ if node['artifactory']['install_java']
   include_recipe 'java'
 end
 
+# ark requires rsync and unzip package
 package 'unzip'
-# ark requires rsync package
 package 'rsync'
 
 directory node['artifactory']['log_dir'] do
@@ -33,6 +33,7 @@ end
 template '/var/lib/artifactory/etc/default' do
   source 'etc.default.erb'
   owner node['artifactory']['user']
+  group node['artifactory']['user']
   mode 0755
 end
 
