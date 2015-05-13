@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: spinen-artifactory
-# Recipe:: default
+# Recipe:: node
 #
 # Copyright (C) 2015 SPINEN
 #
@@ -18,7 +18,7 @@ package 'rsync'
 directory node['artifactory']['log_dir'] do
   owner node['artifactory']['user']
   group node['artifactory']['user']
-  mode 00755
+  mode 00777
 end
 
 artifactory_install 'artifactory' do
@@ -38,18 +38,16 @@ template '/var/lib/artifactory/etc/default' do
 end
 
 template "#{node['artifactory']['home']}/etc/storage.properties" do
-  source 'mysql.properties.erb'
+  source "#{node['artifactory']['storage']['type']}.properties.erb"
   owner 'artifactory'
   group 'artifactory'
   mode 0664
   variables({
-    :type => default['artifactory']['storage']['type']
-    :url => default['artifactory']['storage']['url'] 
-    :driver => default['artifactory']['storage']['driver']
-    :cache_maxSize => default['artifactory']['storage']['cache_maxSize']
-    :username => default['artifactory']['storage']['username']
-    :password => default['artifactory']['storage']['password']
-    :binary_provider => node['artifactory']['storage']['binary_provider']
+    :driver => node['artifactory']['storage']['driver'],
+    :cache_maxSize => node['artifactory']['storage']['cache_maxSize'],
+    :username => node['artifactory']['storage']['username'],
+    :password => node['artifactory']['storage']['password'],
+    :binary_provider => node['artifactory']['storage']['binary_provider'],
     })
 end 
 

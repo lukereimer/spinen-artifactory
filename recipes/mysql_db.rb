@@ -8,7 +8,7 @@
 #
 require 'json'
 
-include_recipe 'spinen_mysql'
+include_recipe 'spinen-mysql'
 
 package 'libmysql-java' do
   action :install
@@ -20,7 +20,7 @@ mysql_connection_info = {
   :password => node['mysql']['initial_root_password']
 }
 
-mysql_database 'artifactory' do
+mysql_database 'artdb' do
   connection mysql_connection_info
   action :create
 end
@@ -39,4 +39,13 @@ mysql_database_user "#{node['artifactory']['storage']['user']}" do
   privileges [:all]
   require_ssl false
   action :grant
+end
+
+include_recipe 'spinen-artifactory::default'
+
+link "#{node['artifactory']['home']}/tomcat/lib/mysql.jar" do
+  to '/usr/share/java/mysql.jar'
+  owner 'artifactory'
+  group 'artifactory'
+  mode 0644
 end

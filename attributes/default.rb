@@ -12,8 +12,6 @@ default['artifactory']['install_java'] = true
 
 # Storage options, these are written into the $ARTIFACORY_HOME/etc/storage.properties
 default['artifactory']['storage']['type'] = 'derby'
-default['artifactory']['storage']['url'] = 'jdbc:derby:{db.home};create=true' 
-default['artifactory']['storage']['driver'] = 'org.apache.derby.jdbc.EmbeddedDriver'
 default['artifactory']['storage']['cache_maxSize'] = '5GB'
 default['artifactory']['storage']['username'] = nil
 default['artifactory']['storage']['password'] = nil
