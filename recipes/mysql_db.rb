@@ -34,7 +34,7 @@ end
 mysql_database_user "#{node['artifactory']['storage']['user']}" do
   connection mysql_connection_info
   password "#{node['artifactory']['storage']['password']}"
-  database_name 'artifactory'
+  database_name 'artdb'
   host '%'
   privileges [:all]
   require_ssl false
