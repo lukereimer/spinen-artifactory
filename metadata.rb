@@ -7,8 +7,11 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version IO.read(File.join(File.dirname(__FILE__), 'VERSION'))
 
 %w(
-	java
-	ark
+  java
+  ark
+  spinen-mysql
+  apt
+  database
 ).each do |cookbook|
   depends cookbook
 end
