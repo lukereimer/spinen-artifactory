@@ -15,9 +15,9 @@ package 'libmysql-java' do
 end
 
 mysql_connection_info = {
-  :host     => '127.0.0.1',
-  :username => 'root',
-  :password => node['mysql']['initial_root_password']
+  host:     '127.0.0.1',
+  username: 'root',
+  password: node['mysql']['initial_root_password']
 }
 
 mysql_database 'artdb' do
@@ -25,17 +25,17 @@ mysql_database 'artdb' do
   action :create
 end
 
-mysql_database_user "#{node['artifactory']['storage']['user']}" do
+mysql_database_user "#{node['artifactory']['storage']['username']}" do
   connection mysql_connection_info
   password "#{node['artifactory']['storage']['password']}"
   action :create
 end
 
-mysql_database_user "#{node['artifactory']['storage']['user']}" do
+mysql_database_user "#{node['artifactory']['storage']['username']}" do
   connection mysql_connection_info
   password "#{node['artifactory']['storage']['password']}"
   database_name 'artdb'
-  host '%'
+  host 'localhost'
   privileges [:all]
   require_ssl false
   action :grant

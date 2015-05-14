@@ -41,9 +41,8 @@ template "#{node['artifactory']['home']}/etc/storage.properties" do
   source "#{node['artifactory']['storage']['type']}.properties.erb"
   owner 'artifactory'
   group 'artifactory'
-  mode 0664
+  mode 0644
   variables({
-    :driver => node['artifactory']['storage']['driver'],
     :cache_maxSize => node['artifactory']['storage']['cache_maxSize'],
     :username => node['artifactory']['storage']['username'],
     :password => node['artifactory']['storage']['password'],
