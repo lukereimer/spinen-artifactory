@@ -13,6 +13,12 @@ class Chef
           home node['artifactory']['home']
         end
 
+        # remote_file '/tmp/artifactory.zip' do
+        #   source node['artifactory']['url']
+        #   checksum node['artifactory']['zip_checksum']
+        #   mode 0777
+        # end
+
         ark 'artifactory' do
           url node['artifactory']['zip_url']
           checksum node['artifactory']['zip_checksum']
