@@ -28,6 +28,17 @@ Include `spinen-artifactory` in your node's `run_list`:
   ]
 }
 ```
+
+### spinen-artifactory::mysql_db
+
+This installs and configures a mysql database for artifactory. you will need to set  a few more attributes:
+
+```ruby
+node['artifactory']['storage']['type'] = 'mysql'
+node['artifactory']['storage']['username']
+node['artifactory']['storage']['password']
+
+```
 ## TO-DO
 
 
