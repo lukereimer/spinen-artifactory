@@ -30,7 +30,7 @@ link ::File.join(node['artifactory']['catalina_base'], 'logs') do
   owner node['artifactory']['user']
 end
 
-template '/var/lib/artifactory/etc/default' do
+template "#{node['artifactory']['home']}/etc/default" do
   source 'etc.default.erb'
   owner node['artifactory']['user']
   group node['artifactory']['user']
