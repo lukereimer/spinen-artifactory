@@ -1,3 +1,7 @@
+# You must explicitly set these two on your own
+default['artifactory']['zip_url'] = nil
+default['artifactory']['zip_checksum'] = nil
+
 default['artifactory']['home'] = '/var/lib/artifactory'
 default['artifactory']['log_dir'] = '/var/log/artifactory'
 default['artifactory']['catalina_base'] = ::File.join(artifactory['home'], 'tomcat')
