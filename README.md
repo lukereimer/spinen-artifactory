@@ -1,6 +1,8 @@
 # spinen-artifactory-cookbook
 
-Installs Artifactory Pro using the built in installService.sh script, but adds necessary user, diretories, and installs java, if desired.
+Installs Artifactory Pro using the built in installService.sh script, but adds necessary user, directories, and installs java, if desired.
+
+_This cookbook is tested thru Artifactory 3.X. Hopefully version 4.X coming soon!_ 
 
 ## Supported Platforms
 
@@ -39,9 +41,6 @@ node['artifactory']['storage']['username']
 node['artifactory']['storage']['password']
 
 ```
-## TO-DO
-
-
 
 ## License and Authors
 

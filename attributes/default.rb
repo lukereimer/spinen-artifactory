@@ -1,5 +1,6 @@
 # You must explicitly set these two on your own
 default['artifactory']['zip_url'] = nil
+# these needs to be the sha256sum of the artifact
 default['artifactory']['zip_checksum'] = nil
 
 default['artifactory']['home'] = '/var/lib/artifactory'
